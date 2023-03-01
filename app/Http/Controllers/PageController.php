@@ -16,4 +16,14 @@ class PageController extends Controller
     public function articles($id){
         echo "Halaman artikel dengan dengan ID $id";
     }
+    public function aboutUs(){
+        return view('praktikum1.aboutUs');
+    }
+    public function program(){
+        return view('praktikum1.program');
+    }
+
+    public function programDetail($subProgram){
+        return view('praktikum1.program', ['subProgram' => $subProgram]);
+    }
 }
