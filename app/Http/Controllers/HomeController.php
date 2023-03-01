@@ -10,8 +10,8 @@ class HomeController extends Controller
         return view('beranda');
     }
 
-    public function profile(){
-        return view('profile');
+    public function profile($nama){
+        return view('profile', ['nama' => $nama]);
     }
 
     public function home(){
