@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ArtikelModelController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KuliahController;
@@ -52,4 +53,5 @@ Route::get('/about-us', [PageController::class, 'aboutUs']);
 Route::resource('/contact-us', ContactController::class)->only([
     'index', 'create', 'store'
    ]);
-   
+
+Route::get('/artikel', [ArtikelModelController::class, 'index']);
