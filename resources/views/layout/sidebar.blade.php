@@ -49,7 +49,6 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Data keluarga
-                <span class="right badge badge-danger">New</span>
               </p>
             </a>
           </li>
@@ -59,7 +58,6 @@
               <p>
                 Data Mata Kuliah
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
               </p>
             </a>
           </li>
