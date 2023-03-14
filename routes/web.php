@@ -8,6 +8,7 @@ use App\Http\Controllers\HobiModelController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KeluargaModelController;
 use App\Http\Controllers\KuliahController;
+use App\Http\Controllers\MataKuliahModelController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
@@ -61,3 +62,5 @@ Route::get('/artikel', [ArtikelModelController::class, 'index']);
 Route::get('/hobi', [HobiModelController::class, 'index']);
 
 Route::get('/keluarga', [KeluargaModelController::class, 'index']);
+
+Route::get('/mata-kuliah', [MataKuliahModelController::class, 'index']);
