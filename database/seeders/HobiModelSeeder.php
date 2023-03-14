@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class HobiModelSeeder extends Seeder
 {
@@ -14,6 +15,10 @@ class HobiModelSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('hobi')->insert([
+            'nama_hobi' => 'Membaca',
+            'nama_hobi' => 'Mendengarkan Musik',
+            'nama_hobi' => 'Bernyanyi',
+        ]);
     }
 }
