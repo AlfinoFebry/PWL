@@ -16,9 +16,9 @@ class HobiModelSeeder extends Seeder
     public function run()
     {
         DB::table('hobi')->insert([
-            'nama_hobi' => 'Membaca',
-            'nama_hobi' => 'Mendengarkan Musik',
-            'nama_hobi' => 'Bernyanyi',
+            ['nama_hobi' => 'Membaca'],
+            ['nama_hobi' => 'Mendengarkan Musik'],
+            ['nama_hobi' => 'Bernyanyi']
         ]);
     }
 }

@@ -35,29 +35,29 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/" class="nav-link">
+            <a href="/hobi" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Data Hobi
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             
           </li>
           <li class="nav-item">
-            <a href="/profile/AlfinoFebry" class="nav-link">
+            <a href="/dataKeluarga" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Profile
+                Data keluarga
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/kuliah" class="nav-link">
+            <a href="/mataKuliah" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Pengalaman Kuliah
+                Data Mata Kuliah
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right">6</span>
               </p>
