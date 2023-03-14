@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('keluarga_models', function (Blueprint $table) {
-            $table->id();
+        Schema::create('keluarga', function (Blueprint $table) {
+            $table->id('id_keluarga');
+            $table->string('nama_keluarga');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('keluarga_models');
+        Schema::dropIfExists('keluarga');
     }
 };
