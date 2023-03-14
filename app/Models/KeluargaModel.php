@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class KeluargaModel extends Model
 {
-    private $table = 'keluarga';
-    private $primaryKey = 'id_keluarga';
+    protected $table = 'keluarga';
+    protected $primaryKey = 'id_keluarga';
 }

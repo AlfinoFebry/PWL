@@ -45,7 +45,7 @@
             
           </li>
           <li class="nav-item">
-            <a href="/dataKeluarga" class="nav-link">
+            <a href="/keluarga" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Data keluarga

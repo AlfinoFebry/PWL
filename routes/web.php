@@ -6,6 +6,7 @@ use App\Http\Controllers\ArtikelModelController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HobiModelController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KeluargaModelController;
 use App\Http\Controllers\KuliahController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
@@ -58,3 +59,5 @@ Route::resource('/contact-us', ContactController::class)->only([
 Route::get('/artikel', [ArtikelModelController::class, 'index']);
 
 Route::get('/hobi', [HobiModelController::class, 'index']);
+
+Route::get('/keluarga', [KeluargaModelController::class, 'index']);
