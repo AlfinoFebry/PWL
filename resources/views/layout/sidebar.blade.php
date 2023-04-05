@@ -35,7 +35,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/hobi" class="nav-link">
+            <a href="{{ url('/hobi')}}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Data Hobi
@@ -45,7 +45,7 @@
             
           </li>
           <li class="nav-item">
-            <a href="/keluarga" class="nav-link">
+            <a href="{{ url('/keluarga')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Data keluarga
@@ -53,11 +53,19 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/mata-kuliah" class="nav-link">
+            <a href="{{ url('/mata-kuliah')}}" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Data Mata Kuliah
                 <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/mahasiswa')}}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Mahasiswa
               </p>
             </a>
           </li>
