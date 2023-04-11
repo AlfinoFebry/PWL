@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MataKuliahModel;
+use App\Models\HobiModel;
 use Illuminate\Http\Request;
 
-class KuliahController extends Controller
+class HobiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class KuliahController extends Controller
      */
     public function index()
     {
-        $kuliah = MataKuliahModel::all();
-        return view('kuliah.kuliah') -> with('mk', $kuliah);
+        $hobi = HobiModel::all();
+        return view('hobi.hobi') -> with('hobi', $hobi);
     }
 
     /**
@@ -25,8 +25,8 @@ class KuliahController extends Controller
      */
     public function create()
     {
-        return view('kuliah.create_kuliah')
-        ->with('kuliah_form', url('/kuliah'));
+        return view('hobi.create_hobi')
+        ->with('hobi_form', url('/hobi'));
     }
 
     /**
@@ -37,14 +37,13 @@ class KuliahController extends Controller
      */
     public function store(Request $request)
     {
-        $request -> validate([
-            'nama_matkul' => 'required|string|max:255',
-            'hari' => 'required|string|max:255',
+        $request->validate([
+            'nama_hobi' => 'required|string|max:255',
         ]);
 
-        $data = MataKuliahModel::create($request->except('_token'));
-        return redirect('/kuliah')
-        ->with('success', 'Data mata kuliah berhasil ditambahkan');
+        $data = HobiModel::create($request->except('_token'));
+        return redirect('/hobi')
+        ->with('success', 'Data hobi berhasil ditambahkan');
     }
 
     /**
@@ -66,10 +65,10 @@ class KuliahController extends Controller
      */
     public function edit($id)
     {
-        $kuliah = MataKuliahModel::find($id);
-        return view('kuliah.create_kuliah')
-        ->with('mk', $kuliah)
-        ->with('kuliah_form', url('/kuliah/'.$id));
+        $hobi = HobiModel::find($id);
+        return view('hobi.create_hobi')
+        ->with('hobi', $hobi)
+        ->with('hobi_form', url('/hobi/'.$id));
     }
 
     /**
@@ -81,14 +80,13 @@ class KuliahController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request -> validate([
-            'nama_matkul' => 'required|string|max:255',
-            'hari' => 'required|string|max:255',
+        $request->validate([
+            'nama_hobi' => 'required|string|max:255,' .$id,
         ]);
 
-        $data = MataKuliahModel::where('id', '=', $id)->update($request->except('_token', '_method'));
-        return redirect('/kuliah')
-        ->with('success', 'Data mata kuliah berhasil diubah');
+        $data = HobiModel::where('id', '=', $id)->update($request->except('_token', '_method'));
+        return redirect('/hobi')
+        ->with('success', 'Data hobi berhasil diubah');
     }
 
     /**
@@ -99,8 +97,8 @@ class KuliahController extends Controller
      */
     public function destroy($id)
     {
-        MataKuliahModel::destroy($id);
-        return redirect('/kuliah')
-        ->with('success', 'Data mata kuliah berhasil dihapus');
+        HobiModel::destroy($id);
+        return redirect('/hobi')
+        ->with('success', 'Hobi berhasil dihapus');
     }
 }

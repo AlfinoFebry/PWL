@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MataKuliahModel;
+use App\Models\KeluargaModel;
 use Illuminate\Http\Request;
 
-class KuliahController extends Controller
+class keluargaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class KuliahController extends Controller
      */
     public function index()
     {
-        $kuliah = MataKuliahModel::all();
-        return view('kuliah.kuliah') -> with('mk', $kuliah);
+        $keluarga = KeluargaModel::all();
+        return view('keluarga.keluarga') -> with('klg', $keluarga);
     }
 
     /**
@@ -25,8 +25,8 @@ class KuliahController extends Controller
      */
     public function create()
     {
-        return view('kuliah.create_kuliah')
-        ->with('kuliah_form', url('/kuliah'));
+        return view('keluarga.create_keluarga')
+        ->with('keluarga_form', url('/keluarga'));
     }
 
     /**
@@ -38,13 +38,13 @@ class KuliahController extends Controller
     public function store(Request $request)
     {
         $request -> validate([
-            'nama_matkul' => 'required|string|max:255',
-            'hari' => 'required|string|max:255',
+            'nama_keluarga' => 'required|string|max:255',
+            'status' => 'required|string|max:255',
         ]);
 
-        $data = MataKuliahModel::create($request->except('_token'));
-        return redirect('/kuliah')
-        ->with('success', 'Data mata kuliah berhasil ditambahkan');
+        $data = KeluargaModel::create($request->except('_token'));
+        return redirect('/keluarga')
+        ->with('success', 'Data keluarga berhasil ditambahkan');
     }
 
     /**
@@ -66,10 +66,10 @@ class KuliahController extends Controller
      */
     public function edit($id)
     {
-        $kuliah = MataKuliahModel::find($id);
-        return view('kuliah.create_kuliah')
-        ->with('mk', $kuliah)
-        ->with('kuliah_form', url('/kuliah/'.$id));
+        $keluarga = KeluargaModel::find($id);
+        return view('keluarga.create_keluarga')
+        ->with('klg', $keluarga)
+        ->with('keluarga_form', url('/keluarga/'.$id));
     }
 
     /**
@@ -82,13 +82,13 @@ class KuliahController extends Controller
     public function update(Request $request, $id)
     {
         $request -> validate([
-            'nama_matkul' => 'required|string|max:255',
-            'hari' => 'required|string|max:255',
+            'nama_keluarga' => 'required|string|max:255,' .$id,
+            'status' => 'required|string|max:255',
         ]);
 
-        $data = MataKuliahModel::where('id', '=', $id)->update($request->except('_token', '_method'));
-        return redirect('/kuliah')
-        ->with('success', 'Data mata kuliah berhasil diubah');
+        $data = KeluargaModel::where('id', '=', $id)->update($request->except('_token', '_method'));
+        return redirect('/keluarga')
+        ->with('success', 'Data keluarga berhasil diubah');
     }
 
     /**
@@ -99,8 +99,8 @@ class KuliahController extends Controller
      */
     public function destroy($id)
     {
-        MataKuliahModel::destroy($id);
-        return redirect('/kuliah')
-        ->with('success', 'Data mata kuliah berhasil dihapus');
+        KeluargaModel::destroy($id);
+        return redirect('/keluarga')
+        ->with('success', 'Data keluarga berhasil dihapus');
     }
 }

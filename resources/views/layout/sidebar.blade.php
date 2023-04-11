@@ -53,7 +53,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('/mata-kuliah')}}" class="nav-link">
+            <a href="{{ url('/kuliah')}}" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Data Mata Kuliah

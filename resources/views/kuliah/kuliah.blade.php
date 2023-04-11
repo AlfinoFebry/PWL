@@ -6,11 +6,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Mahasiswa</h1>
+            <h1>Data Mata Kuliah</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">Data Mahasiswa</li>
+              <li class="breadcrumb-item active">Data Mata Kuliah</li>
             </ol>
           </div>
         </div>
@@ -23,7 +23,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Tabel Mahasiswas</h3>
+          <h3 class="card-title">Tabel MataKuliah</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -36,33 +36,28 @@
         </div>
         <div class="card-body">
 
-          <a href="{{url('mahasiswa/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
+          <a href="{{url('kuliah/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
 
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
                 <th>No</th>
-                <th>NIM</th>
                 <th>Nama</th>
-                <th>JK</th>
-                <th>HP</th>
-                <th>Action</th>
+                <th>Hari</th>
               </tr>
             </thead>
             <tbody>
-              @if($mhs->count() > 0)
-                @foreach($mhs as $i => $m)
+              @if($mk->count() > 0)
+                @foreach($mk as $i => $m)
                   <tr>
                     <td>{{++$i}}</td>
-                    <td>{{$m->nim}}</td>
-                    <td>{{$m->nama}}</td>
-                    <td>{{$m->jk}}</td>
-                    <td>{{$m->hp}}</td>
+                    <td>{{$m->nama_matkul}}</td>
+                    <td>{{$m->hari}}</td>
                     <td>
                       <!-- Bikin tombol edit dan delete -->
-                      <a href="{{ url('/mahasiswa/'. $m->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
+                      <a href="{{ url('/kuliah/'. $m->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
 
-                      <form method="POST" action="{{ url('/mahasiswa/'.$m->id) }}" >
+                      <form method="POST" action="{{ url('/kuliah/'.$m->id) }}" >
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm btn-danger">hapus</button>

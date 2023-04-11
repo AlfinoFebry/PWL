@@ -6,8 +6,9 @@ use App\Http\Controllers\ArtikelModelController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HobiModelController;
+use App\Http\Controllers\HobiController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\keluargaController;
 use App\Http\Controllers\KeluargaModelController;
 use App\Http\Controllers\KuliahController;
 use App\Http\Controllers\MahasiswaController;
@@ -34,14 +35,13 @@ Auth::routes();
 Route::get('logout', [LoginController::class, 'logout']);
 Route::middleware(['auth'])->group(function () {
     Route::get('/artikel', [ArtikelModelController::class, 'index']);
-    Route::get('/hobi', [HobiModelController::class, 'index']);
-    Route::get('/keluarga', [KeluargaModelController::class, 'index']);
+    // Route::get('/keluarga', [KeluargaModelController::class, 'index']);
     Route::get('/mata-kuliah', [MataKuliahModelController::class, 'index']);
     Route::get('/', [DashboardController::class, 'index']);
 
     Route::get('/profile/{nama}', [ProfileController::class, 'index']);
 
-    Route::get('/kuliah', [KuliahController::class, 'index']);
+    // Route::get('/kuliah', [KuliahController::class, 'index']);
 
     Route::get('/about', [AboutController::class, 'about']);
 
@@ -50,6 +50,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::resource('/mahasiswa', MahasiswaController::class);
+
+    Route::resource('/hobi', HobiController::class);
+
+    Route::resource('/keluarga', keluargaController::class);
+
+    Route::resource('/kuliah', KuliahController::class);
 });
 
 

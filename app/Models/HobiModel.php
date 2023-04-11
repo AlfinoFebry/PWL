@@ -8,5 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class HobiModel extends Model
 {
     protected $table = 'hobi';
-    protected $primaryKey = 'id_tabel';
+
+    protected $fillable = [
+        'nama_hobi'
+    ];
 }
