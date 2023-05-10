@@ -56,6 +56,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/keluarga', keluargaController::class);
 
     Route::resource('/kuliah', KuliahController::class);
+
+    Route::get('/mahasiswa/detail-nilai/{nim}', [App\Http\Controllers\MahasiswaController::class, 'detail_nilai']);
 });
 
 

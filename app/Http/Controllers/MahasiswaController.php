@@ -143,4 +143,9 @@ class MahasiswaController extends Controller
         return redirect('/mahasiswa')
             ->with('success', 'Mahasiswa berhasil dihapus');
     }
+
+    public function detail_nilai($nim){
+        $mahasiswa = MahasiswaModel::where('nim', $nim)->first();
+        return view('mahasiswa.khs', ['mhs' => $mahasiswa]);
+    }
 }
