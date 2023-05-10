@@ -88,6 +88,27 @@
                     <span class="error invalid-feedback">{{ $message }}</span>
                   @enderror
               </div>
+              <div class="form-group">
+                            <label for="kelas_id">Kelas</label>
+                            <select name="kelas_id" class="form-control @error('kelas_id') is-invalid @enderror">
+                                <option value="">-- Pilih Kelas --</option>
+                                @foreach ($kelas as $k)
+                                    <option value="{{ $k->id }}"
+                                        {{ old('kelas_id') == $k->id ? 'selected' : (isset($mahasiswa) && $mahasiswa->kelas_id == $k->id ? 'selected' : '') }}>
+                                        {{ $k->nama }}</option>
+                                @endforeach
+                            </select>
+                            @error('kelas_id')
+                                <div class="error invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+              <div class="form-group">
+                <label>Jurusan</label>
+                <input type="text" class="form-control @error('jurusan') is-invalid @enderror" value="{{ isset($mhs)? $mhs->jurusan : old('jurusan')}}" name="jurusan">
+                  @error('jurusan')
+                    <span class="error invalid-feedback">{{ $message }}</span>
+                  @enderror
+              </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

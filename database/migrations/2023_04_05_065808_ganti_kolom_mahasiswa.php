@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('mahasiswa', function (Blueprint $table) {
-            $table->renameColumn('tempat lahir', 'tempat_lahir');
-            $table->renameColumn('tanggal lahir', 'tanggal_lahir');
+            // $table->renameColumn('tempat lahir', 'tempat_lahir');
+            // $table->renameColumn('tanggal lahir', 'tanggal_lahir');
         });
     }
 
