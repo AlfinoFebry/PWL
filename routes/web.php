@@ -57,7 +57,11 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('/kuliah', KuliahController::class);
 
+    Route::get('/articles/cetak_pdf', [ArticleController::class, 'cetak_pdf']);
+    
     Route::resource('/articles', ArticleController::class);
+
+    
 
     Route::get('/mahasiswa/detail-nilai/{nim}', [App\Http\Controllers\MahasiswaController::class, 'detail_nilai']);
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -106,5 +107,10 @@ class ArticleController extends Controller
     public function destroy(article $article)
     {
         //
+    }
+    public function cetak_pdf(){
+        $articles = Article::all();
+        $pdf = PDF::loadview('articles.articles_pdf', ['articles'=>$articles]);
+        return $pdf->stream();
     }
 }
