@@ -45,7 +45,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/about', [AboutController::class, 'about']);
 
-    Route::get('/articles/{id}', [ArticleController::class, 'articles']);
+    //Route::get('/articles/{id}', [ArticleController::class, 'articles']);
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -56,6 +56,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/keluarga', keluargaController::class);
 
     Route::resource('/kuliah', KuliahController::class);
+
+    Route::resource('/articles', ArticleController::class);
 
     Route::get('/mahasiswa/detail-nilai/{nim}', [App\Http\Controllers\MahasiswaController::class, 'detail_nilai']);
 });
