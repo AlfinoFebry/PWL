@@ -53,12 +53,19 @@ class MahasiswaController extends Controller
             'hp' => 'required|digits_between:6,15',
             'kelas_id' => 'required|exists:kelas,id',
             'jurusan' => 'required|string|max:50',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Add validation for the image
         ]);
 
-        $data = MahasiswaModel::create($request->except(['_token']));
-        return redirect('/mahasiswa')
-            ->with('success', 'Mahasiswa berhasil ditambahkan');
+        $image_name = null;
+        if ($request->file('image')) {
+            $image_name = $request->file('image')->store('images', 'public');
+        }
+
+        $data = MahasiswaModel::create(array_merge($request->except(['_token']), ['foto' => $image_name]));
+
+        return redirect('/mahasiswa')->with('success', 'Mahasiswa berhasil ditambahkan');
     }
+
 
     /**
      * Display the specified resource.
@@ -66,10 +73,10 @@ class MahasiswaController extends Controller
      * @param  \App\Models\Mahasiswa  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function show($Nim)
+    public function show($id)
     {
         //$mahasiswa = MahasiswaModel::with('kelas')->where('nim', $Nim)->first();
-        $mahasiswa = MahasiswaModel::find($Nim);
+        $mahasiswa = MahasiswaModel::with('kelas')->where('nim', $id)->first();
         return view('mahasiswa.show', ['mhs' => $mahasiswa]);
     }
 
@@ -107,6 +114,7 @@ class MahasiswaController extends Controller
             'tanggal_lahir' => 'required|date', // YYYY-MM-DD Format ISO
             'alamat' => 'required|string|max:255',
             'hp' => 'required|digits_between:6,15',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $mahasiswa = MahasiswaModel::with('kelas')->where('nim', $id)->first();
@@ -117,10 +125,14 @@ class MahasiswaController extends Controller
         $mahasiswa->tanggal_lahir = $request->get('tanggal_lahir');
         $mahasiswa->alamat = $request->get('alamat');
         $mahasiswa->hp = $request->get('hp');
-        $mahasiswa->save();
 
-        $kelas = new Kelas();
-        $kelas->id = $request->get('kelas');
+        if ($request->file('image')) {
+            $image_name = $request->file('image')->store('images', 'public');
+            $mahasiswa->foto = $image_name;
+        }
+
+        $kelas = Kelas::find($request->get('kelas'));
+
 
         //fungsi eloquent untuk mengupdate data dengan relasi belongsTo
         $mahasiswa->kelas()->associate($kelas);

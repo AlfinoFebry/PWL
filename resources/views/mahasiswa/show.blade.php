@@ -35,6 +35,7 @@
           </div>
         </div>
         <div class="card-body">
+        <img src="{{ asset('storage/'. $mhs->foto) }}" alt="Foto Mahasiswa" class="img-fluid mb-3">
         <ul class="list-group list-group-flush">
                     <li class="list-group-item"><b>NIM: </b>{{$mhs->nim}}</li>
                     <li class="list-group-item"><b>Nama: </b>{{$mhs->nama}}</li>

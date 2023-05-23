@@ -41,6 +41,7 @@
           <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
+                            <th>Foto</th>
                             <th>NIM</th>
                             <th>Nama</th>
                             <th>Kelas</th>
@@ -52,6 +53,12 @@
                         @if($mhs->count() > 0)
                         @foreach($paginate as $m)
                         <tr>
+                            <td>
+                                @if($m->foto)
+                                <img src="{{asset('storage/'.$m->foto)}}" width="100px" />
+                                @else
+                                N/A
+                                @endif
                             <td>{{$m->nim}}</td>
                             <td>{{$m->nama}}</td>
                             <td>{{$m->kelas->nama_kelas}}</td>
@@ -85,7 +92,10 @@
         <!-- /.card-body -->
         <!-- /.card-body -->
         <div class="card-footer">
+        {{ $paginate->links('pagination::bootstrap-4') }}
+
           ~Alfino Febry Krissaputra
+          
         </div>
         <!-- /.card-footer-->
       </div>
